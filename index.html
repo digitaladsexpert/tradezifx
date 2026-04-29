@@ -88,8 +88,6 @@ h1{
   color:#facc15;
 }
 
-
-
 .footer-links{
   margin-top:22px;
   font-size:13px;
@@ -125,20 +123,28 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1516448406847960');
+
+fbq('init', '950809567714960');
 fbq('track', 'PageView');
 
+/* Subscribe Event Function */
+function trackJoin(url){
+  fbq('track', 'Subscribe', {
+    value: 1,
+    currency: 'INR'
+  });
 
-
-/* TRACK BUTTON CLICK */
-function trackJoin(){
-  fbq('track','Subscribe');
+  // delay redirect so event fires properly
+  setTimeout(function(){
+    window.open(url, '_blank');
+  }, 200);
 }
 </script>
 
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1516448406847960&ev=PageView&noscript=1"
-/></noscript>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=950809567714960&ev=PageView&noscript=1"/>
+</noscript>
 <!-- End Meta Pixel Code -->
 
 </head>
@@ -157,12 +163,10 @@ src="https://www.facebook.com/tr?id=1516448406847960&ev=PageView&noscript=1"
     Join others who are already watching and understanding real-time market movements
   </div>
 
-  <!-- FOMO LINE -->
   <div class="fomo">
     🔴 Ongoing live sessions • New members joining daily
   </div>
 
-  <!-- EXTRA FOMO -->
   <div style="font-size:12px;color:#22c55e;">
     ✔ Limited active spots for live interaction
   </div>
@@ -174,8 +178,11 @@ src="https://www.facebook.com/tr?id=1516448406847960&ev=PageView&noscript=1"
     <div class="point">✔ No signals • No tips • Only learning</div>
   </div>
 
-  <a class="btn" href="https://t.me/+3KUClyrXbW80YWJl" target="_blank" onclick="trackJoin()">
-    🚀 Join Free Before Next Session Starts
+  <!-- CTA BUTTON -->
+  <a class="btn"
+     href="https://t.me/+3KUClyrXbW80YWJl"
+     onclick="trackJoin(this.href); return false;">
+     🚀 Join Free Before Next Session Starts
   </a>
 
   <div class="live">
@@ -186,9 +193,6 @@ src="https://www.facebook.com/tr?id=1516448406847960&ev=PageView&noscript=1"
     ⚠️ Educational content only • Not financial advice
   </p>
 
- 
-
-  <!-- FOOTER -->
   <div class="footer-links">
     Managed By  
     <a href="https://t.me/+ifc6dyg-xiA2ZGE1" target="_blank">Digital Ads Expert</a>
